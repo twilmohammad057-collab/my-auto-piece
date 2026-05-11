@@ -617,19 +617,13 @@ export default function CarPartsStore() {
               </div>
             </button>
           </div>
-          <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:10}}>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end"}}>
             <button onClick={scrollToSearch} aria-label="Rechercher"
-              style={{width:38,height:38,borderRadius:8,background:"none",border:"none",color:"rgba(255,255,255,0.55)",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"color .2s,background .2s"}}
+              style={{width:42,height:42,borderRadius:10,background:"none",border:"none",color:"rgba(255,255,255,0.65)",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"color .2s,background .2s"}}
               onMouseEnter={e=>{e.currentTarget.style.color="#fff";e.currentTarget.style.background="rgba(255,255,255,0.12)";}}
-              onMouseLeave={e=>{e.currentTarget.style.color="rgba(255,255,255,0.55)";e.currentTarget.style.background="none";}}>
+              onMouseLeave={e=>{e.currentTarget.style.color="rgba(255,255,255,0.65)";e.currentTarget.style.background="none";}}>
               <SearchIco/>
             </button>
-            <a href="/blog"
-              style={{fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.75)",textDecoration:"none",padding:"6px 12px",borderRadius:8,transition:"color .2s,background .2s",whiteSpace:"nowrap"}}
-              onMouseEnter={e=>{e.currentTarget.style.color="#fff";e.currentTarget.style.background="rgba(255,255,255,0.1)";}}
-              onMouseLeave={e=>{e.currentTarget.style.color="rgba(255,255,255,0.75)";e.currentTarget.style.background="transparent";}}>
-              Blog
-            </a>
           </div>
         </div>
       </header>
