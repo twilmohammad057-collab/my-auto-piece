@@ -74,7 +74,7 @@ export default function BlogPost() {
         <header style={{ background: BRAND_BLUE, position: "sticky", top: 0, zIndex: 50, borderBottom: "1px solid rgba(0,0,0,0.15)" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "14px 20px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
             <a href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-              <img src={LOGO_SRC} alt="MY Auto Pièces" style={{ height: 40 }} />
+              <img src={LOGO_SRC} alt="MY Auto Pièces" style={{ height: 40, display: "block", background: "transparent", mixBlendMode: "screen", objectFit: "contain" }} />
               <div>
                 <div style={{ fontSize: 16, fontWeight: 900, letterSpacing: "2px", color: "#fff", lineHeight: 1 }}>MY AUTO PIÈCES</div>
                 <div style={{ fontSize: 9, color: "rgba(255,255,255,0.5)", letterSpacing: "1px", marginTop: 2 }}>CASABLANCA · MAROC</div>

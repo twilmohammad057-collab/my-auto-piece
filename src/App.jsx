@@ -261,7 +261,7 @@ export default function CarPartsStore() {
 
   const HomeView = () => (
     <>
-      <div style={{background:"linear-gradient(160deg,#EEF2FF 0%,#F9FAFB 50%,#EFF6FF 100%)",textAlign:"center",padding:"clamp(52px,7vw,88px) 20px clamp(32px,4vw,48px)",position:"relative"}}>
+      <div style={{background:"linear-gradient(160deg,#EEF2FF 0%,#F9FAFB 50%,#EFF6FF 100%)",textAlign:"center",padding:"clamp(52px,7vw,88px) 20px clamp(32px,4vw,48px)",position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",top:-80,right:-60,width:400,height:400,background:"radial-gradient(circle,rgba(29,78,216,0.05) 0%,transparent 65%)",pointerEvents:"none"}}/>
         <div style={{position:"absolute",bottom:-60,left:-40,width:300,height:300,background:"radial-gradient(circle,rgba(29,78,216,0.04) 0%,transparent 65%)",pointerEvents:"none"}}/>
 
