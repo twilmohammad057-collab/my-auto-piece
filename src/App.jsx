@@ -280,64 +280,38 @@ export default function CarPartsStore() {
         </p>
       </div>
 
-      {/* SearchBox — outside overflow:hidden hero, no stacking context so dropdown floats freely */}
+      {/* 2 — Search box */}
       <div style={{background:"#E8EFFE",borderBottom:"1px solid #C7D7FC",padding:"28px 20px 32px"}}>
         <SearchBox/>
       </div>
 
+      {/* 3 — Brands */}
       <div style={{background:"#FFFFFF",borderBottom:"1px solid #E5E7EB"}}>
-        <div style={{maxWidth:1100,margin:"0 auto",display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:1,borderLeft:"1px solid #E5E7EB"}}>
-          {TRUST.map((t,i)=>(
-            <div key={i} style={{padding:"26px 24px",borderRight:"1px solid #E5E7EB",display:"flex",gap:14,alignItems:"flex-start"}}>
-              <div style={{width:44,height:44,borderRadius:12,background:`${t.accent}12`,border:`1.5px solid ${t.accent}25`,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><t.Icon size={22} strokeWidth={1.8}/></div>
-              <div>
-                <h3 style={{fontSize:13,fontWeight:700,color:"#111827",marginBottom:5}}>{t.title}</h3>
-                <p style={{fontSize:12.5,color:"#6B7280",lineHeight:1.6,margin:0}}>{t.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* 500 DH policy — elegant service note, not a warning */}
-        <div style={{maxWidth:1100,margin:"0 auto",padding:"14px 24px 18px",borderTop:"1px solid #F3F4F6",display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" strokeWidth="1.8" strokeLinecap="round" width="14" height="14">
-            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-          </svg>
-          <p style={{fontSize:12,color:"#6B7280",margin:0}}>
-            Politique de commande · Un acompte de{" "}
-            <strong style={{color:"#374151",fontWeight:700}}>500 DH</strong>{" "}
-            est requis à la confirmation — le solde est réglé à la livraison.
-          </p>
-        </div>
-      </div>
-
-      <div style={{background:"#FFFFFF",borderBottom:"1px solid #E5E7EB"}}>
-        <div style={{maxWidth:1100,margin:"0 auto",padding:"clamp(48px,6vw,72px) 20px"}}>
-          <div style={{textAlign:"center",marginBottom:36}}>
+        <div style={{maxWidth:1100,margin:"0 auto",padding:"clamp(40px,5vw,60px) 20px"}}>
+          <div style={{textAlign:"center",marginBottom:28}}>
             <p style={{fontSize:10,fontWeight:700,letterSpacing:"2.5px",color:"#1D4ED8",marginBottom:8}}>PAR MARQUE</p>
             <h2 style={{fontSize:"clamp(20px,3.5vw,30px)",fontWeight:800,color:"#111827",letterSpacing:"-0.3px"}}>Trouvez par votre marque</h2>
             <p style={{fontSize:13,color:"#9CA3AF",marginTop:8}}>Cliquez sur votre marque pour explorer les pièces disponibles</p>
           </div>
-
-          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:16}}>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(150px,1fr))",gap:14}}>
             {["Renault","Dacia","Citroën","Nissan","Peugeot","Fiat"].map(brand=>{
               const accent = BRAND_ACCENT[brand]||"#1D4ED8";
               const filter = LOGO_FILTER[brand]||"none";
               const mCount = (MODELS[brand]||[]).filter(m=>m!=="Tous modèles").length;
               return (
                 <button key={brand} onClick={()=>goToBrand(brand)}
-                  style={{background:"#FFFFFF",border:"1.5px solid #E5E7EB",borderRadius:16,padding:"24px 14px 20px",textAlign:"center",cursor:"pointer",fontFamily:"'Inter',sans-serif",display:"flex",flexDirection:"column",alignItems:"center",gap:14,transition:"transform .18s,border-color .18s,box-shadow .18s",position:"relative",overflow:"hidden"}}
-                  onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.borderColor=accent;e.currentTarget.style.boxShadow="0 10px 32px rgba(0,0,0,0.1)";}}
+                  style={{background:"#FFFFFF",border:"1.5px solid #E5E7EB",borderRadius:16,padding:"20px 12px 16px",textAlign:"center",cursor:"pointer",fontFamily:"'Inter',sans-serif",display:"flex",flexDirection:"column",alignItems:"center",gap:12,transition:"transform .18s,border-color .18s,box-shadow .18s",position:"relative",overflow:"hidden"}}
+                  onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.borderColor=accent;e.currentTarget.style.boxShadow="0 8px 24px rgba(0,0,0,0.09)";}}
                   onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.borderColor="#E5E7EB";e.currentTarget.style.boxShadow="none";}}>
-
                   <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:accent,borderRadius:"16px 16px 0 0",opacity:0.7}}/>
-                  <div style={{width:72,height:52,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
-                    <img src={BRAND_LOGOS[brand]} alt={brand} style={{maxWidth:68,maxHeight:48,width:"auto",height:"auto",objectFit:"contain",display:"block",filter:filter,transition:"filter .2s"}}/>
+                  <div style={{width:64,height:46,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+                    <img src={BRAND_LOGOS[brand]} alt={brand} style={{maxWidth:60,maxHeight:44,width:"auto",height:"auto",objectFit:"contain",display:"block",filter:filter}}/>
                   </div>
                   <div>
-                    <div style={{fontSize:15,fontWeight:800,color:"#111827",marginBottom:3,letterSpacing:"-.2px"}}>{brand}</div>
+                    <div style={{fontSize:14,fontWeight:800,color:"#111827",marginBottom:2,letterSpacing:"-.2px"}}>{brand}</div>
                     <div style={{fontSize:11,color:"#9CA3AF",fontWeight:400}}>{mCount} modèle{mCount>1?"s":""}</div>
                   </div>
-                  <span style={{fontSize:11,fontWeight:700,color:accent,padding:"4px 13px",background:`${accent}12`,borderRadius:20,border:`1px solid ${accent}30`,letterSpacing:".2px"}}>
+                  <span style={{fontSize:11,fontWeight:700,color:accent,padding:"3px 12px",background:`${accent}12`,borderRadius:20,border:`1px solid ${accent}30`}}>
                     Voir les pièces
                   </span>
                 </button>
@@ -347,15 +321,35 @@ export default function CarPartsStore() {
         </div>
       </div>
 
-      <div style={{background:"#F9FAFB",borderBottom:"1px solid #E5E7EB"}}>
-        <div style={{maxWidth:1100,margin:"0 auto",padding:"clamp(48px,6vw,72px) 20px"}}>
-          <div style={{textAlign:"center",marginBottom:30}}>
+      {/* 4 — Trust / quality features */}
+      <div style={{background:"#F8FAFC",borderBottom:"1px solid #E5E7EB"}}>
+        <div style={{maxWidth:1100,margin:"0 auto",padding:"clamp(36px,5vw,56px) 20px"}}>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",gap:16}}>
+            {TRUST.map((t,i)=>(
+              <div key={i} style={{background:"#FFFFFF",border:"1.5px solid #E5E7EB",borderRadius:14,padding:"22px 20px",display:"flex",gap:14,alignItems:"flex-start"}}>
+                <div style={{width:44,height:44,borderRadius:12,background:`${t.accent}12`,border:`1.5px solid ${t.accent}25`,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+                  <t.Icon size={22} strokeWidth={1.8} color={t.accent}/>
+                </div>
+                <div style={{minWidth:0}}>
+                  <h3 style={{fontSize:13,fontWeight:700,color:"#111827",marginBottom:5}}>{t.title}</h3>
+                  <p style={{fontSize:12.5,color:"#6B7280",lineHeight:1.6,margin:0}}>{t.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 5 — Reviews */}
+      <div style={{background:"#FFFFFF",borderBottom:"1px solid #E5E7EB"}}>
+        <div style={{maxWidth:1100,margin:"0 auto",padding:"clamp(40px,5vw,60px) 20px"}}>
+          <div style={{textAlign:"center",marginBottom:28}}>
             <p style={{fontSize:10,fontWeight:700,letterSpacing:"2.5px",color:"#1D4ED8",marginBottom:8}}>AVIS CLIENTS</p>
             <h2 style={{fontSize:"clamp(20px,3.5vw,30px)",fontWeight:800,color:"#111827",letterSpacing:"-0.3px"}}>Ce que disent nos clients</h2>
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:14}}>
             {REVIEWS.map((r,i)=>(
-              <div key={i} style={{background:"#FFFFFF",border:"1.5px solid #E5E7EB",borderRadius:14,padding:"20px 18px"}}>
+              <div key={i} style={{background:"#F9FAFB",border:"1.5px solid #E5E7EB",borderRadius:14,padding:"20px 18px"}}>
                 <div style={{marginBottom:9}}><span style={{display:"flex",gap:2}}>{[0,1,2,3,4].map(s=><Star key={s} size={14} fill="#F59E0B" color="#F59E0B"/>)}</span></div>
                 <p style={{fontSize:13,color:"#374151",lineHeight:1.75,marginBottom:14,fontStyle:"italic"}}>"{r.text}"</p>
                 <div style={{display:"flex",alignItems:"center",gap:9,borderTop:"1px solid #F3F4F6",paddingTop:12}}>
@@ -371,15 +365,16 @@ export default function CarPartsStore() {
         </div>
       </div>
 
-      <div style={{background:"#FFFFFF"}}>
+      {/* 6 — Shipping & 500 DH policy */}
+      <div style={{background:"#F9FAFB"}}>
         <div style={{maxWidth:860,margin:"0 auto",padding:"clamp(40px,5vw,60px) 20px"}}>
-          <div style={{textAlign:"center",marginBottom:30}}>
+          <div style={{textAlign:"center",marginBottom:28}}>
             <p style={{fontSize:10,fontWeight:700,letterSpacing:"2.5px",color:"#1D4ED8",marginBottom:8}}>INFORMATIONS PRATIQUES</p>
             <h2 style={{fontSize:"clamp(20px,3.5vw,28px)",fontWeight:800,color:"#111827",marginBottom:10}}>Livraison & Retrait</h2>
             <div style={{width:36,height:3,background:"#1D4ED8",margin:"0 auto",borderRadius:2}}/>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:16}}>
-            <div style={{background:"#F9FAFB",border:"1.5px solid #E5E7EB",borderRadius:14,padding:"22px 18px",position:"relative",overflow:"hidden"}}>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:16}}>
+            <div style={{background:"#FFFFFF",border:"1.5px solid #E5E7EB",borderRadius:14,padding:"22px 18px",position:"relative",overflow:"hidden"}}>
               <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"#1D4ED8",borderRadius:"14px 14px 0 0"}}/>
               <div style={{display:"flex",gap:12,alignItems:"flex-start",marginBottom:14}}>
                 <div style={{width:42,height:42,borderRadius:10,background:"#DBEAFE",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Store size={20} color="#1D4ED8" strokeWidth={1.8}/></div>
@@ -394,7 +389,7 @@ export default function CarPartsStore() {
                 <p style={{fontSize:12,color:"#92400E",lineHeight:1.6,margin:0}}>Ce point n'est pas un magasin. Attendez la confirmation WhatsApp avant de vous déplacer.</p>
               </div>
             </div>
-            <div style={{background:"#F9FAFB",border:"1.5px solid #E5E7EB",borderRadius:14,padding:"22px 18px",position:"relative",overflow:"hidden"}}>
+            <div style={{background:"#FFFFFF",border:"1.5px solid #E5E7EB",borderRadius:14,padding:"22px 18px",position:"relative",overflow:"hidden"}}>
               <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"#059669",borderRadius:"14px 14px 0 0"}}/>
               <div style={{display:"flex",gap:12,alignItems:"flex-start",marginBottom:14}}>
                 <div style={{width:42,height:42,borderRadius:10,background:"#D1FAE5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Truck size={20} color="#059669" strokeWidth={1.8}/></div>
@@ -403,7 +398,7 @@ export default function CarPartsStore() {
                   <p style={{fontSize:10,color:"#059669",fontWeight:600,margin:"3px 0 0"}}>TRANSPORTEURS PROFESSIONNELS</p>
                 </div>
               </div>
-              <div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:9,padding:"13px",marginBottom:12}}>
+              <div style={{background:"#F9FAFB",border:"1px solid #E5E7EB",borderRadius:9,padding:"13px",marginBottom:12}}>
                 <p style={{fontSize:9,fontWeight:700,letterSpacing:"1px",color:"#9CA3AF",marginBottom:8}}>TARIFS</p>
                 <div style={{display:"flex",justifyContent:"space-between",marginBottom:5}}>
                   <span style={{fontSize:12.5,color:"#374151"}}>Petits colis</span>
@@ -413,11 +408,22 @@ export default function CarPartsStore() {
               <p style={{fontSize:12,color:"#6B7280",lineHeight:1.6}}>Indiquez une adresse professionnelle si vous êtes souvent absent.</p>
             </div>
           </div>
-          <div style={{textAlign:"center",marginTop:24}}>
+          <div style={{textAlign:"center",marginTop:20}}>
             <a href={`https://wa.me/${WA}?text=${encodeURIComponent("Bonjour MY Auto Pièces, j'ai une question sur la livraison.")}`} target="_blank" rel="noreferrer"
               style={{display:"inline-flex",alignItems:"center",gap:7,padding:"11px 20px",background:"#F0FDF4",border:"1.5px solid #86EFAC",borderRadius:10,color:"#15803D",textDecoration:"none",fontSize:13,fontWeight:700}}>
               <WaIco/> Poser une question
             </a>
+          </div>
+          {/* 500 DH deposit policy */}
+          <div style={{marginTop:24,padding:"14px 20px",background:"#EFF6FF",border:"1px solid #BFDBFE",borderRadius:12,display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" strokeWidth="1.8" strokeLinecap="round" width="16" height="16" style={{flexShrink:0}}>
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <p style={{fontSize:12.5,color:"#1E40AF",margin:0,lineHeight:1.6}}>
+              <strong style={{fontWeight:700}}>Politique de commande :</strong>{" "}Un acompte de{" "}
+              <strong style={{fontWeight:800}}>500 DH</strong>{" "}
+              est requis à la confirmation — le solde est réglé à la livraison.
+            </p>
           </div>
         </div>
       </div>
@@ -623,12 +629,6 @@ export default function CarPartsStore() {
               onMouseEnter={e=>{e.currentTarget.style.color="#fff";e.currentTarget.style.background="rgba(255,255,255,0.1)";}}
               onMouseLeave={e=>{e.currentTarget.style.color="rgba(255,255,255,0.75)";e.currentTarget.style.background="transparent";}}>
               Blog
-            </a>
-            <a href={`https://wa.me/${WA}`} target="_blank" rel="noreferrer" className="wa-pill"
-              style={{display:"flex",alignItems:"center",gap:6,padding:"7px 14px",background:"rgba(255,255,255,0.12)",border:"1px solid rgba(255,255,255,0.22)",borderRadius:20,color:"#fff",textDecoration:"none",fontSize:11.5,fontWeight:600,whiteSpace:"nowrap",transition:"background .2s"}}
-              onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.22)"}
-              onMouseLeave={e=>e.currentTarget.style.background="rgba(255,255,255,0.12)"}>
-              <WaIco/><span style={{marginLeft:4}}>06 34 11 92 67</span>
             </a>
           </div>
         </div>
