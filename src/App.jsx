@@ -414,17 +414,6 @@ export default function CarPartsStore() {
               <WaIco/> Poser une question
             </a>
           </div>
-          {/* 500 DH deposit policy */}
-          <div style={{marginTop:24,padding:"14px 20px",background:"#EFF6FF",border:"1px solid #BFDBFE",borderRadius:12,display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" strokeWidth="1.8" strokeLinecap="round" width="16" height="16" style={{flexShrink:0}}>
-              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-            </svg>
-            <p style={{fontSize:12.5,color:"#1E40AF",margin:0,lineHeight:1.6}}>
-              <strong style={{fontWeight:700}}>Politique de commande :</strong>{" "}Un acompte de{" "}
-              <strong style={{fontWeight:800}}>500 DH</strong>{" "}
-              est requis à la confirmation — le solde est réglé à la livraison.
-            </p>
-          </div>
         </div>
       </div>
     </>
@@ -668,52 +657,43 @@ export default function CarPartsStore() {
 
           {/* Payment methods */}
           <div>
-            <p style={{fontSize:9,fontWeight:700,letterSpacing:"2px",color:"rgba(255,255,255,0.3)",marginBottom:12}}>MODES DE PAIEMENT ACCEPTÉS</p>
-            <div style={{display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
-              {/* CIH Bank */}
-              <div style={{display:"flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:8,padding:"6px 11px"}}>
-                <div style={{width:8,height:8,borderRadius:"50%",background:"#D4282A",flexShrink:0}}/>
-                <span style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.75)",whiteSpace:"nowrap"}}>CIH Bank</span>
-              </div>
-              {/* Attijariwafa */}
-              <div style={{display:"flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:8,padding:"6px 11px"}}>
-                <div style={{width:8,height:8,borderRadius:"50%",background:"#E2001A",flexShrink:0}}/>
-                <span style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.75)",whiteSpace:"nowrap"}}>Attijariwafa</span>
-              </div>
-              {/* Wafacash */}
-              <div style={{display:"flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:8,padding:"6px 11px"}}>
-                <div style={{width:8,height:8,borderRadius:"50%",background:"#F5A800",flexShrink:0}}/>
-                <span style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.75)",whiteSpace:"nowrap"}}>Wafacash</span>
-              </div>
-              {/* Cash Plus */}
-              <div style={{display:"flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:8,padding:"6px 11px"}}>
-                <div style={{width:8,height:8,borderRadius:"50%",background:"#00A651",flexShrink:0}}/>
-                <span style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.75)",whiteSpace:"nowrap"}}>Cash Plus</span>
-              </div>
+            <p style={{fontSize:9,fontWeight:700,letterSpacing:"2px",color:"rgba(255,255,255,0.3)",marginBottom:14}}>MODES DE PAIEMENT ACCEPTÉS</p>
+            <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
+              {[
+                {abbr:"CIH",  name:"CIH Bank",     color:"#D4282A"},
+                {abbr:"ATW",  name:"Attijariwafa",  color:"#E2001A"},
+                {abbr:"WFC",  name:"Wafacash",      color:"#F5A800"},
+                {abbr:"C+",   name:"Cash Plus",     color:"#00A651"},
+              ].map(({abbr,name,color})=>(
+                <div key={name} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:7,width:72,padding:"12px 8px 10px",background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:10}}>
+                  <div style={{width:36,height:36,borderRadius:8,background:`${color}20`,border:`1px solid ${color}38`,display:"flex",alignItems:"center",justifyContent:"center"}}>
+                    <span style={{fontSize:10,fontWeight:800,color:`${color}CC`,letterSpacing:"0.5px"}}>{abbr}</span>
+                  </div>
+                  <span style={{fontSize:9,fontWeight:600,color:"rgba(255,255,255,0.45)",textAlign:"center",lineHeight:1.3,letterSpacing:"0.3px"}}>{name}</span>
+                </div>
+              ))}
             </div>
-            <p style={{fontSize:10,color:"rgba(255,255,255,0.25)",marginTop:8,lineHeight:1.5}}>
-              Virement bancaire · Dépôt en agence · Paiement à la livraison
+            <p style={{fontSize:10,color:"rgba(255,255,255,0.2)",marginTop:10,lineHeight:1.5}}>
+              Virement · Dépôt agence · Paiement à la livraison
             </p>
           </div>
         </div>
 
         {/* Deposit policy */}
-        <div style={{borderTop:"1px solid rgba(255,255,255,0.07)",padding:"20px 20px"}}>
-          <div style={{maxWidth:860,margin:"0 auto",background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.08)",borderRadius:12,padding:"18px 20px",display:"flex",gap:14,alignItems:"flex-start"}}>
-            <div style={{width:36,height:36,borderRadius:9,background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,255,255,0.12)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:2}}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1.8" strokeLinecap="round" width="16" height="16">
-                <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="12" r=".5" fill="currentColor"/>
-              </svg>
-            </div>
-            <div style={{flex:1,minWidth:0}}>
-              <p style={{fontSize:9,fontWeight:700,letterSpacing:"2px",color:"rgba(255,255,255,0.35)",marginBottom:10}}>POLITIQUE D'ACOMPTE — سياسة التسبيق</p>
-              <p style={{fontSize:12.5,color:"rgba(255,255,255,0.55)",lineHeight:1.75,margin:"0 0 10px",direction:"rtl",textAlign:"right",fontFamily:"'Segoe UI',Tahoma,sans-serif"}}>
-                نظراً لقيمة وخصوصية قطع الغيار، نطلب تسبيقاً رمزياً قدره <strong style={{color:"rgba(255,255,255,0.8)",fontWeight:700}}>500 درهم</strong> لضمان جدية الطلب. هذا الإجراء يضمن لكم الأولوية في المعالجة والتوصيل السريع وتفادي أي تأخير لوجستي.
-              </p>
-              <p style={{fontSize:12.5,color:"rgba(255,255,255,0.5)",lineHeight:1.75,margin:0}}>
-                En raison de la valeur des pièces de rechange, un acompte de <strong style={{color:"rgba(255,255,255,0.75)",fontWeight:700}}>500 DH</strong> est requis pour confirmer la commande. Cela nous permet de garantir une priorité de traitement et une livraison rapide.
-              </p>
-            </div>
+        <div style={{borderTop:"1px solid rgba(255,255,255,0.07)",padding:"28px 20px"}}>
+          <div style={{maxWidth:780,margin:"0 auto",background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:14,padding:"22px 24px"}}>
+            <p style={{fontSize:9,fontWeight:700,letterSpacing:"2px",color:"rgba(255,255,255,0.3)",marginBottom:16,textAlign:"center"}}>POLITIQUE D'ACOMPTE — سياسة التسبيق</p>
+            <p style={{fontSize:13,color:"rgba(255,255,255,0.55)",lineHeight:1.8,margin:"0 0 14px",direction:"rtl",textAlign:"right",fontFamily:"'Segoe UI',Tahoma,sans-serif"}}>
+              نظراً لقيمة وخصوصية قطع الغيار، نطلب تسبيقاً رمزياً قدره{" "}
+              <strong style={{color:"rgba(255,255,255,0.8)",fontWeight:700}}>500 درهم</strong>{" "}
+              لضمان جدية الطلب. هذا الإجراء يضمن لكم الأولوية في المعالجة والتوصيل السريع وتفادي أي تأخير لوجستي.
+            </p>
+            <div style={{height:1,background:"rgba(255,255,255,0.07)",margin:"0 0 14px"}}/>
+            <p style={{fontSize:13,color:"rgba(255,255,255,0.5)",lineHeight:1.8,margin:0}}>
+              En raison de la valeur des pièces de rechange, un acompte de{" "}
+              <strong style={{color:"rgba(255,255,255,0.75)",fontWeight:700}}>500 DH</strong>{" "}
+              est requis pour confirmer la commande. Cela nous permet de garantir une priorité de traitement et une livraison rapide.
+            </p>
           </div>
         </div>
 
