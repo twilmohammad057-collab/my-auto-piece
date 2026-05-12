@@ -638,20 +638,92 @@ export default function CarPartsStore() {
         <ProductPage product={selectedProduct} onBack={backFromProduct} />
       )}
 
-      <footer style={{background:"#1535A0",borderTop:"1px solid rgba(0,0,0,0.1)"}}>
-        <div style={{maxWidth:1280,margin:"0 auto",padding:"22px 20px",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:14}}>
+      <footer style={{background:"#0F2880",borderTop:"1px solid rgba(0,0,0,0.18)"}}>
+
+        {/* Main footer row */}
+        <div style={{maxWidth:1280,margin:"0 auto",padding:"32px 20px 28px",display:"flex",justifyContent:"space-between",alignItems:"flex-start",flexWrap:"wrap",gap:28}}>
+
+          {/* Brand */}
           <div style={{display:"flex",alignItems:"center",gap:10}}>
-            <img src={LOGO_SRC} alt="MY" className="logo-img" style={{height:30}}/>
+            <img src={LOGO_SRC} alt="MY" className="logo-img" style={{height:34}}/>
             <div>
-              <div style={{fontSize:11,fontWeight:800,letterSpacing:"2px",color:"rgba(255,255,255,0.8)"}}>MY AUTO PIÈCES</div>
-              <div style={{fontSize:9,color:"rgba(255,255,255,0.35)",letterSpacing:"1px",marginTop:1}}>© 2025 · CASABLANCA · MAROC</div>
+              <div style={{fontSize:12,fontWeight:800,letterSpacing:"2px",color:"rgba(255,255,255,0.85)"}}>MY AUTO PIÈCES</div>
+              <div style={{fontSize:9,color:"rgba(255,255,255,0.35)",letterSpacing:"1px",marginTop:2}}>CASABLANCA · MAROC</div>
             </div>
           </div>
-          <div style={{display:"flex",gap:18,flexWrap:"wrap"}}>
-            <span style={{fontSize:11.5,color:"rgba(255,255,255,0.65)"}}><Phone size={11} style={{display:"inline-block",verticalAlign:"middle",marginRight:3}}/> 06 34 11 92 67</span>
-            <span style={{fontSize:11.5,color:"rgba(255,255,255,0.45)"}}><Mail size={11} style={{display:"inline-block",verticalAlign:"middle",marginRight:3}}/> myautopieces@gmail.com</span>
+
+          {/* Contact */}
+          <div style={{display:"flex",flexDirection:"column",gap:7}}>
+            <p style={{fontSize:9,fontWeight:700,letterSpacing:"2px",color:"rgba(255,255,255,0.3)",marginBottom:2}}>CONTACT</p>
+            <span style={{fontSize:12,color:"rgba(255,255,255,0.7)",display:"flex",alignItems:"center",gap:5}}>
+              <Phone size={11} style={{flexShrink:0}}/> 06 34 11 92 67
+            </span>
+            <span style={{fontSize:12,color:"rgba(255,255,255,0.45)",display:"flex",alignItems:"center",gap:5}}>
+              <Mail size={11} style={{flexShrink:0}}/> myautopieces@gmail.com
+            </span>
+            <span style={{fontSize:12,color:"rgba(255,255,255,0.45)",display:"flex",alignItems:"center",gap:5}}>
+              <MapPin size={11} style={{flexShrink:0}}/> Casablanca, Maroc
+            </span>
+          </div>
+
+          {/* Payment methods */}
+          <div>
+            <p style={{fontSize:9,fontWeight:700,letterSpacing:"2px",color:"rgba(255,255,255,0.3)",marginBottom:12}}>MODES DE PAIEMENT ACCEPTÉS</p>
+            <div style={{display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
+              {/* CIH Bank */}
+              <div style={{display:"flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:8,padding:"6px 11px"}}>
+                <div style={{width:8,height:8,borderRadius:"50%",background:"#D4282A",flexShrink:0}}/>
+                <span style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.75)",whiteSpace:"nowrap"}}>CIH Bank</span>
+              </div>
+              {/* Attijariwafa */}
+              <div style={{display:"flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:8,padding:"6px 11px"}}>
+                <div style={{width:8,height:8,borderRadius:"50%",background:"#E2001A",flexShrink:0}}/>
+                <span style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.75)",whiteSpace:"nowrap"}}>Attijariwafa</span>
+              </div>
+              {/* Wafacash */}
+              <div style={{display:"flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:8,padding:"6px 11px"}}>
+                <div style={{width:8,height:8,borderRadius:"50%",background:"#F5A800",flexShrink:0}}/>
+                <span style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.75)",whiteSpace:"nowrap"}}>Wafacash</span>
+              </div>
+              {/* Cash Plus */}
+              <div style={{display:"flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:8,padding:"6px 11px"}}>
+                <div style={{width:8,height:8,borderRadius:"50%",background:"#00A651",flexShrink:0}}/>
+                <span style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.75)",whiteSpace:"nowrap"}}>Cash Plus</span>
+              </div>
+            </div>
+            <p style={{fontSize:10,color:"rgba(255,255,255,0.25)",marginTop:8,lineHeight:1.5}}>
+              Virement bancaire · Dépôt en agence · Paiement à la livraison
+            </p>
           </div>
         </div>
+
+        {/* Deposit policy */}
+        <div style={{borderTop:"1px solid rgba(255,255,255,0.07)",padding:"20px 20px"}}>
+          <div style={{maxWidth:860,margin:"0 auto",background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.08)",borderRadius:12,padding:"18px 20px",display:"flex",gap:14,alignItems:"flex-start"}}>
+            <div style={{width:36,height:36,borderRadius:9,background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,255,255,0.12)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:2}}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1.8" strokeLinecap="round" width="16" height="16">
+                <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="12" r=".5" fill="currentColor"/>
+              </svg>
+            </div>
+            <div style={{flex:1,minWidth:0}}>
+              <p style={{fontSize:9,fontWeight:700,letterSpacing:"2px",color:"rgba(255,255,255,0.35)",marginBottom:10}}>POLITIQUE D'ACOMPTE — سياسة التسبيق</p>
+              <p style={{fontSize:12.5,color:"rgba(255,255,255,0.55)",lineHeight:1.75,margin:"0 0 10px",direction:"rtl",textAlign:"right",fontFamily:"'Segoe UI',Tahoma,sans-serif"}}>
+                نظراً لقيمة وخصوصية قطع الغيار، نطلب تسبيقاً رمزياً قدره <strong style={{color:"rgba(255,255,255,0.8)",fontWeight:700}}>500 درهم</strong> لضمان جدية الطلب. هذا الإجراء يضمن لكم الأولوية في المعالجة والتوصيل السريع وتفادي أي تأخير لوجستي.
+              </p>
+              <p style={{fontSize:12.5,color:"rgba(255,255,255,0.5)",lineHeight:1.75,margin:0}}>
+                En raison de la valeur des pièces de rechange, un acompte de <strong style={{color:"rgba(255,255,255,0.75)",fontWeight:700}}>500 DH</strong> est requis pour confirmer la commande. Cela nous permet de garantir une priorité de traitement et une livraison rapide.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright bar */}
+        <div style={{borderTop:"1px solid rgba(255,255,255,0.06)",padding:"12px 20px",textAlign:"center"}}>
+          <p style={{fontSize:10,color:"rgba(255,255,255,0.22)",margin:0}}>
+            © 2025 MY AUTO PIÈCES · Casablanca, Maroc
+          </p>
+        </div>
+
       </footer>
     </div>
   );
