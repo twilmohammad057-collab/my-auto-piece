@@ -660,16 +660,29 @@ export default function CarPartsStore() {
             <p style={{fontSize:9,fontWeight:700,letterSpacing:"2px",color:"rgba(255,255,255,0.3)",marginBottom:14}}>MODES DE PAIEMENT ACCEPTÉS</p>
             <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
               {[
-                {src:"/payment/cih.png",          abbr:"CIH", name:"CIH Bank"    },
-                {src:"/payment/attijariwafa.png",  abbr:"ATW", name:"Attijariwafa"},
-                {src:"/payment/wafacash.png",      abbr:"WFC", name:"Wafacash"   },
-                {src:"/payment/cashplus.png",      abbr:"C+",  name:"Cash Plus"  },
+                {
+                  src:"https://fveasrldkddtzwspzgfg.supabase.co/storage/v1/object/sign/payment-logos/Screenshot_2026-05-12_192759-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMWE5MmQ1Ny04ZmFlLTRhZmYtYjA3ZS01NGQ2NjgzYzhmN2UiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwYXltZW50LWxvZ29zL1NjcmVlbnNob3RfMjAyNi0wNS0xMl8xOTI3NTktcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3Nzg2MTUyMzksImV4cCI6MTEwNzY3MDMxMjM5fQ.3tsTTJevXQQgEwAv-r20M1QeILcsQZcGmD21lCAkto4",
+                  abbr:"CIH", name:"CIH Bank",
+                },
+                {
+                  src:"https://fveasrldkddtzwspzgfg.supabase.co/storage/v1/object/sign/payment-logos/Screenshot_2026-05-12_193005-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMWE5MmQ1Ny04ZmFlLTRhZmYtYjA3ZS01NGQ2NjgzYzhmN2UiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwYXltZW50LWxvZ29zL1NjcmVlbnNob3RfMjAyNi0wNS0xMl8xOTMwMDUtcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3Nzg2MTUxNjYsImV4cCI6NzQxMTcxNjcxMTY2fQ.aC-S9OWN23RSFCsMoan2LJcgLr23KFUk65u9dnH4BDU",
+                  abbr:"ATW", name:"Attijariwafa",
+                },
+                {
+                  src:"https://fveasrldkddtzwspzgfg.supabase.co/storage/v1/object/sign/payment-logos/Screenshot_2026-05-12_193220-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMWE5MmQ1Ny04ZmFlLTRhZmYtYjA3ZS01NGQ2NjgzYzhmN2UiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwYXltZW50LWxvZ29zL1NjcmVlbnNob3RfMjAyNi0wNS0xMl8xOTMyMjAtcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3Nzg2MTUyOTgsImV4cCI6MzgwNTEyNzI5OH0.KMN4qTKtiSYSUk-7c3p-qlYA5EAq3c1zmceOkLzmous",
+                  abbr:"WFC", name:"Wafacash",
+                },
+                {
+                  src:"https://fveasrldkddtzwspzgfg.supabase.co/storage/v1/object/sign/payment-logos/Screenshot_2026-05-12_192919-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMWE5MmQ1Ny04ZmFlLTRhZmYtYjA3ZS01NGQ2NjgzYzhmN2UiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwYXltZW50LWxvZ29zL1NjcmVlbnNob3RfMjAyNi0wNS0xMl8xOTI5MTktcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3Nzg2MTUxMDEsImV4cCI6NzQxMTQwMTM1MTAxfQ.SLQx5p9UMw7VyXD5ywyYSH0ws9y4LYMJwPKs2T0seZc",
+                  abbr:"C+",  name:"Cash Plus",
+                },
               ].map(({src,abbr,name})=>(
                 <div key={name} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:7,width:76,padding:"12px 8px 10px",background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:10}}>
                   <div style={{width:44,height:32,display:"flex",alignItems:"center",justifyContent:"center"}}>
                     <img
                       src={src}
                       alt={name}
+                      loading="lazy"
                       style={{maxWidth:44,maxHeight:32,width:"auto",height:"auto",objectFit:"contain",filter:"grayscale(1) brightness(1.8)",transition:"filter .25s"}}
                       onMouseEnter={e=>e.currentTarget.style.filter="grayscale(0) brightness(1)"}
                       onMouseLeave={e=>e.currentTarget.style.filter="grayscale(1) brightness(1.8)"}
@@ -678,7 +691,6 @@ export default function CarPartsStore() {
                         e.currentTarget.nextSibling.style.display="flex";
                       }}
                     />
-                    {/* Fallback shown only if image fails to load */}
                     <span style={{display:"none",fontSize:10,fontWeight:800,color:"rgba(255,255,255,0.5)",letterSpacing:"0.5px"}}>{abbr}</span>
                   </div>
                   <span style={{fontSize:9,fontWeight:600,color:"rgba(255,255,255,0.45)",textAlign:"center",lineHeight:1.3,letterSpacing:"0.3px"}}>{name}</span>
