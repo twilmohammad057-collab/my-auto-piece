@@ -660,14 +660,26 @@ export default function CarPartsStore() {
             <p style={{fontSize:9,fontWeight:700,letterSpacing:"2px",color:"rgba(255,255,255,0.3)",marginBottom:14}}>MODES DE PAIEMENT ACCEPTÉS</p>
             <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
               {[
-                {abbr:"CIH",  name:"CIH Bank",     color:"#D4282A"},
-                {abbr:"ATW",  name:"Attijariwafa",  color:"#E2001A"},
-                {abbr:"WFC",  name:"Wafacash",      color:"#F5A800"},
-                {abbr:"C+",   name:"Cash Plus",     color:"#00A651"},
-              ].map(({abbr,name,color})=>(
-                <div key={name} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:7,width:72,padding:"12px 8px 10px",background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:10}}>
-                  <div style={{width:36,height:36,borderRadius:8,background:`${color}20`,border:`1px solid ${color}38`,display:"flex",alignItems:"center",justifyContent:"center"}}>
-                    <span style={{fontSize:10,fontWeight:800,color:`${color}CC`,letterSpacing:"0.5px"}}>{abbr}</span>
+                {src:"/payment/cih.png",          abbr:"CIH", name:"CIH Bank"    },
+                {src:"/payment/attijariwafa.png",  abbr:"ATW", name:"Attijariwafa"},
+                {src:"/payment/wafacash.png",      abbr:"WFC", name:"Wafacash"   },
+                {src:"/payment/cashplus.png",      abbr:"C+",  name:"Cash Plus"  },
+              ].map(({src,abbr,name})=>(
+                <div key={name} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:7,width:76,padding:"12px 8px 10px",background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:10}}>
+                  <div style={{width:44,height:32,display:"flex",alignItems:"center",justifyContent:"center"}}>
+                    <img
+                      src={src}
+                      alt={name}
+                      style={{maxWidth:44,maxHeight:32,width:"auto",height:"auto",objectFit:"contain",filter:"grayscale(1) brightness(1.8)",transition:"filter .25s"}}
+                      onMouseEnter={e=>e.currentTarget.style.filter="grayscale(0) brightness(1)"}
+                      onMouseLeave={e=>e.currentTarget.style.filter="grayscale(1) brightness(1.8)"}
+                      onError={e=>{
+                        e.currentTarget.style.display="none";
+                        e.currentTarget.nextSibling.style.display="flex";
+                      }}
+                    />
+                    {/* Fallback shown only if image fails to load */}
+                    <span style={{display:"none",fontSize:10,fontWeight:800,color:"rgba(255,255,255,0.5)",letterSpacing:"0.5px"}}>{abbr}</span>
                   </div>
                   <span style={{fontSize:9,fontWeight:600,color:"rgba(255,255,255,0.45)",textAlign:"center",lineHeight:1.3,letterSpacing:"0.3px"}}>{name}</span>
                 </div>
