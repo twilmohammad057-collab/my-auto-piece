@@ -593,31 +593,34 @@ export default function CarPartsStore() {
         </a>
       )}
 
-      <header style={{background:"#1535A0",borderBottom:"1px solid rgba(0,0,0,0.15)",position:"sticky",top:0,zIndex:50}}>
-        <div style={{background:"#0F2880",borderBottom:"1px solid rgba(0,0,0,0.1)"}}>
-          <div style={{maxWidth:1400,margin:"0 auto",padding:"4px 20px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-            <div style={{display:"flex",gap:16,alignItems:"center"}}>
-              <span style={{fontSize:11,fontWeight:600,color:"rgba(255,255,255,0.88)"}}><Phone size={11} style={{display:"inline-block",verticalAlign:"middle",marginRight:3}}/> 06 34 11 92 67</span>
-              <span className="mob-hide" style={{fontSize:10,color:"rgba(255,255,255,0.2)"}}>|</span>
-              <span className="mob-hide" style={{fontSize:11,color:"rgba(255,255,255,0.55)"}}><Mail size={11} style={{display:"inline-block",verticalAlign:"middle",marginRight:3}}/> myautopieces@gmail.com</span>
-            </div>
-            <span style={{fontSize:13,fontWeight:600,color:"rgba(255,255,255,0.92)"}}><MapPin size={12} style={{display:"inline-block",verticalAlign:"middle",marginRight:3}}/> Casablanca, Maroc</span>
+      {/* Top bar — NOT sticky, scrolls away naturally */}
+      <div style={{background:"#0F2880",borderBottom:"1px solid rgba(0,0,0,0.1)"}}>
+        <div style={{maxWidth:1400,margin:"0 auto",padding:"5px 20px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <div style={{display:"flex",gap:16,alignItems:"center"}}>
+            <span style={{fontSize:11,fontWeight:600,color:"rgba(255,255,255,0.88)"}}><Phone size={11} style={{display:"inline-block",verticalAlign:"middle",marginRight:3}}/> 06 34 11 92 67</span>
+            <span className="mob-hide" style={{fontSize:10,color:"rgba(255,255,255,0.2)"}}>|</span>
+            <span className="mob-hide" style={{fontSize:11,color:"rgba(255,255,255,0.55)"}}><Mail size={11} style={{display:"inline-block",verticalAlign:"middle",marginRight:3}}/> myautopieces@gmail.com</span>
           </div>
+          <span style={{fontSize:11,fontWeight:600,color:"rgba(255,255,255,0.92)"}}><MapPin size={12} style={{display:"inline-block",verticalAlign:"middle",marginRight:3}}/> Casablanca, Maroc</span>
         </div>
+      </div>
 
+      {/* Main nav — sticky, stays at top on scroll */}
+      <header style={{background:"#1535A0",position:"sticky",top:0,zIndex:50,boxShadow:"0 2px 16px rgba(0,0,0,0.18)"}}>
         <div className="hi">
-          <div style={{display:"flex",alignItems:"center",justifyContent:"flex-start"}}>
+          {/* Left — burger */}
+          <div style={{display:"flex",alignItems:"center",flex:1}}>
             <button className="burger" onClick={()=>setMenuOpen(true)} aria-label="Menu"><BurgerIco/></button>
           </div>
+          {/* Center — logo + name */}
           <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-            <button onClick={scrollToTop} style={{display:"flex",alignItems:"center",gap:10,background:"none",border:"none",cursor:"pointer",padding:"4px"}}>
-              <img src={LOGO_SRC} alt="MY Auto Pièces" className="logo-img" style={{height:50}}/>
-              <div style={{textAlign:"left"}}>
-                <div style={{fontSize:"clamp(18px,2.2vw,24px)",fontWeight:900,letterSpacing:"2.5px",color:"#FFFFFF",lineHeight:1,whiteSpace:"nowrap"}}>MY AUTO PIÈCES</div>
-              </div>
+            <button onClick={scrollToTop} style={{display:"flex",alignItems:"center",gap:9,background:"none",border:"none",cursor:"pointer",padding:"4px 8px"}}>
+              <img src={LOGO_SRC} alt="MY Auto Pièces" className="logo-img" style={{height:46}}/>
+              <span style={{fontSize:"clamp(16px,2vw,22px)",fontWeight:900,letterSpacing:"2.5px",color:"#FFFFFF",lineHeight:1,whiteSpace:"nowrap"}}>MY AUTO PIÈCES</span>
             </button>
           </div>
-          <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end"}}>
+          {/* Right — search */}
+          <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",flex:1}}>
             <button onClick={scrollToSearch} aria-label="Rechercher"
               style={{width:42,height:42,borderRadius:10,background:"none",border:"none",color:"rgba(255,255,255,0.65)",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"color .2s,background .2s"}}
               onMouseEnter={e=>{e.currentTarget.style.color="#fff";e.currentTarget.style.background="rgba(255,255,255,0.12)";}}
