@@ -35,6 +35,11 @@ const BRAND_ACCENT = {
   Nissan:"#C3002F",  Peugeot:"#002D6A", Fiat:"#2C6CB0",
 };
 
+const PIECE_COUNTS = {
+  Renault: 45, Dacia: 30, Peugeot: 50,
+  Fiat: 20, Citroën: 35, Nissan: 15,
+};
+
 const BRANDS = ["Toutes marques","Citroën","Dacia","Fiat","Nissan","Peugeot","Renault"];
 const MODELS = {
   "Toutes marques":["Tous modèles"],
@@ -297,7 +302,7 @@ export default function CarPartsStore() {
             {["Renault","Dacia","Citroën","Nissan","Peugeot","Fiat"].map(brand=>{
               const accent = BRAND_ACCENT[brand]||"#1D4ED8";
               const filter = LOGO_FILTER[brand]||"none";
-              const mCount = (MODELS[brand]||[]).filter(m=>m!=="Tous modèles").length;
+              const pCount = PIECE_COUNTS[brand]||0;
               return (
                 <button key={brand} onClick={()=>goToBrand(brand)}
                   style={{background:"#FFFFFF",border:"1.5px solid #E5E7EB",borderRadius:16,padding:"20px 12px 16px",textAlign:"center",cursor:"pointer",fontFamily:"'Inter',sans-serif",display:"flex",flexDirection:"column",alignItems:"center",gap:12,transition:"transform .18s,border-color .18s,box-shadow .18s",position:"relative",overflow:"hidden"}}
@@ -309,7 +314,7 @@ export default function CarPartsStore() {
                   </div>
                   <div>
                     <div style={{fontSize:14,fontWeight:800,color:"#111827",marginBottom:2,letterSpacing:"-.2px"}}>{brand}</div>
-                    <div style={{fontSize:11,color:"#9CA3AF",fontWeight:400}}>{mCount} modèle{mCount>1?"s":""}</div>
+                    <div style={{fontSize:11,color:"#9CA3AF",fontWeight:400}}>{pCount} Pièces</div>
                   </div>
                   <span style={{fontSize:11,fontWeight:700,color:accent,padding:"3px 12px",background:`${accent}12`,borderRadius:20,border:`1px solid ${accent}30`}}>
                     Voir les pièces
@@ -595,7 +600,7 @@ export default function CarPartsStore() {
       </div>
 
       {/* Main nav — sticky, stays at top on scroll */}
-      <header style={{background:"#1535A0",position:"sticky",top:0,zIndex:50,boxShadow:"0 2px 16px rgba(0,0,0,0.18)"}}>
+      <header style={{background:"#1535A0",position:"sticky",top:0,zIndex:80,boxShadow:"0 2px 20px rgba(0,0,0,0.22)"}}>
         <div className="hi">
           {/* Left — burger */}
           <div style={{display:"flex",alignItems:"center",flex:1}}>
