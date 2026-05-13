@@ -688,9 +688,7 @@ export default function CarPartsStore() {
                       src={src}
                       alt={name}
                       loading="lazy"
-                      style={{maxWidth:44,maxHeight:32,width:"auto",height:"auto",objectFit:"contain",filter:"grayscale(1) brightness(1.8)",transition:"filter .25s"}}
-                      onMouseEnter={e=>e.currentTarget.style.filter="grayscale(0) brightness(1)"}
-                      onMouseLeave={e=>e.currentTarget.style.filter="grayscale(1) brightness(1.8)"}
+                      style={{maxWidth:44,maxHeight:32,width:"auto",height:"auto",objectFit:"contain"}}
                       onError={e=>{
                         e.currentTarget.style.display="none";
                         e.currentTarget.nextSibling.style.display="flex";
